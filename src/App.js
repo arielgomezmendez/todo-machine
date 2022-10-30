@@ -1,14 +1,14 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import TodoCounter  from "./TodoCounter";
 
 function App() {
   return (
-    <React.Fragment className="App">
-      {/*<TodoCounter/> */}
-        <h2>Haz completado 2 de 3 todos</h2>
-      
+    <React.Fragment>
+      <TodoCounter/>
+
       {/*<TodoSearch/> */}
-      <input placeholder='cebolla'></input>
+      <input placeholder="cebolla"></input>
       {/*<TodoList>
         <TodoItem/>
       </TodoList>
