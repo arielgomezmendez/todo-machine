@@ -1,10 +1,12 @@
 import React from 'react'
 
-const TodoList = () => {
+const TodoList = (props) => {
   return (
-    <div>
-      
-    </div>
+    <section>
+      <ul>
+        {props.children}
+      </ul>
+    </section>
   )
 }
 
