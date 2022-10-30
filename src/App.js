@@ -19,7 +19,7 @@ function App() {
       <input placeholder="cebolla"></input>
       <TodoList>
         {todos.map((todo) => (
-          <TodoItem text={todo.text} />
+          <TodoItem key={todo.text} text={todo.text} />
         ))}
       </TodoList>
       <CreateButton />
