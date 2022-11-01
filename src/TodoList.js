@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
+import "./TodoList.css";
 
 const TodoList = (props) => {
   return (
     <section>
-      <ul>
-        {props.children}
-      </ul>
+      <ul>{props.children}</ul>
     </section>
-  )
-}
+  );
+};
 
-export default TodoList
+export default TodoList;
