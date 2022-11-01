@@ -1,11 +1,7 @@
-import React from 'react'
-
+import React from "react";
+import "./CreateButton.css";
 const CreateButton = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <button className="CreateTodoButton">+</button>;
+};
 
-export default CreateButton
+export default CreateButton;

@@ -22,7 +22,7 @@ function App() {
         ))}
       </TodoList>
       <CreateButton />
-      <button>+</button>
+      
     </React.Fragment>
   );
 }
