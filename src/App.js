@@ -16,7 +16,6 @@ function App() {
     <React.Fragment>
       <TodoCounter />
       <TodoSearch />
-      <input placeholder="cebolla"></input>
       <TodoList>
         {todos.map((todo) => (
           <TodoItem key={todo.text} text={todo.text} />
