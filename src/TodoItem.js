@@ -12,7 +12,7 @@ const TodoItem = (props) => {
   return (
     <li className="TodoItem">
       <span
-        className="{`Icon Icon-check ${props.completed && 'Icon-check--active'}`}"
+        className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
         onClick={onComplete}
       >
         C
