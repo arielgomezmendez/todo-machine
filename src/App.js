@@ -6,20 +6,18 @@ import TodoList from "./TodoList";
 import CreateButton from "./CreateButton";
 import TodoItem from "./TodoItem";
 
-const todos = [
+const defaultTodos = [
   { text: "Cortar cebolla", completed: false },
   { text: "Tormar el curso de intro a react", completed: false },
   { text: "Llorar con la llorona", completed: false },
 ];
 function App() {
-  const [searchValue, setSearchValue ] = React.useState("");
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState("");
   return (
     <React.Fragment>
       <TodoCounter />
-      <TodoSearch
-      searchValue = {searchValue}
-      setSearchValue = { setSearchValue} 
-      />
+      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <TodoList>
         {todos.map((todo) => (
@@ -27,7 +25,6 @@ function App() {
         ))}
       </TodoList>
       <CreateButton />
-      
     </React.Fragment>
   );
 }
