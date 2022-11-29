@@ -33,6 +33,12 @@ function App() {
       return todoText.includes(searchText);
     });
   }
+  const completeTodos = (text) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
 
   return (
     <React.Fragment>
@@ -40,7 +46,12 @@ function App() {
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList>
         {searchedTodos.map((todo) => (
-          <TodoItem key={todo.text} text={todo.text} />
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodos(todo.text)}
+          />
         ))}
       </TodoList>
       <CreateButton />
