@@ -33,10 +33,19 @@ function App() {
       return todoText.includes(searchText);
     });
   }
+  //Function to complete to-do
   const completeTodos = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  //Function to delete to-do
+  const deleteTodo = (text) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
     setTodos(newTodos);
   };
 
@@ -51,6 +60,7 @@ function App() {
             text={todo.text}
             completed={todo.completed}
             onComplete={() => completeTodos(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
           />
         ))}
       </TodoList>
