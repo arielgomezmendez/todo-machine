@@ -7,21 +7,43 @@ import { AppUI } from "./AppUI";
   { text: "Tormar el curso de intro a react", completed: false },
   { text: "Llorar con la llorona", completed: false },
 ];*/
-function App() {
-  // Traemos nuestros TODOs almacenados
-  const localStorageTodos = localStorage.getItem("TODOS_V1");
-  let parsedTodos;
 
-  if (!localStorageTodos) {
+function useLocalStorage(itemName,initialValue) {
+  // Traemos nuestros TODOs almacenados
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+
+  if (!localStorageItem) {
     // Si el usuario es nuevo no existe un item en localStorage, por lo tanto guardamos uno con un array vacío
-    localStorage.setItem("TODOS_V1", JSON.stringify([]));
-    parsedTodos = [];
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
   } else {
     // Si existen TODOs en el localStorage los regresamos como nuestros todos
-    parsedTodos = JSON.parse(localStorageTodos);
+    parsedItem = JSON.parse(localStorageItem);
   }
+
   // Guardamos nuestros TODOs del localStorage en nuestro estado
-  const [todos, setTodos] = React.useState(parsedTodos);
+  const [item, setItem] = React.useState(parsedItem);
+
+  // Creamos la función en la que actualizaremos nuestro localStorage
+  const saveItem = (newItem) => {
+    // Convertimos a string nuestros TODOs
+    const stringifiedItem = JSON.stringify(newItem);
+    // Los guardamos en el localStorage
+    localStorage.setItem(itemName, stringifiedItem);
+    // Actualizamos nuestro estado
+    setItem(newItem);
+  };
+
+  return[
+    item,
+    saveItem,
+  ];
+}
+
+function App() {
+  const [todos, saveTodos] = useLocalStorage("TODOS_V1",[]);
+
   // State of search
   const [searchValue, setSearchValue] = React.useState("");
 
@@ -42,15 +64,6 @@ function App() {
       return todoText.includes(searchText);
     });
   }
-  // Creamos la función en la que actualizaremos nuestro localStorage
-  const saveTodos = (newTodos) => {
-    // Convertimos a string nuestros TODOs
-    const stringifiedTodos = JSON.stringify(newTodos);
-     // Los guardamos en el localStorage
-    localStorage.setItem("TODOS_V1", stringifiedTodos);
-    // Actualizamos nuestro estado
-    setTodos(newTodos);
-  };
 
   //Function to complete to-do
   const completeTodos = (text) => {
