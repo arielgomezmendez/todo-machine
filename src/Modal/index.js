@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./Modal.css";
 
 function Modal({ children }) {
-     // Create the  portal
+  // Create the  portal
   return ReactDOM.createPortal(
     <div className="ModalBackground">{children}</div>,
     document.getElementById("modal")
