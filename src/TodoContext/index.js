@@ -18,6 +18,7 @@ function TodoProvider(props) {
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
+  //Search todos
   let searchedTodos = [];
 
   if (!searchValue.length >= 1) {
@@ -29,18 +30,27 @@ function TodoProvider(props) {
       return todoText.includes(searchText);
     });
   }
-
+ //Complete todos
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
     saveTodos(newTodos);
   };
-
+//Delete todos
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
+    saveTodos(newTodos);
+  };
+  //Add todos
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      completed: false,
+      text,
+    });
     saveTodos(newTodos);
   };
 
@@ -58,6 +68,7 @@ function TodoProvider(props) {
         searchedTodos,
         completeTodo,
         deleteTodo,
+        addTodo,
         openModal,
         setOpenModal,
       }}
