@@ -9,6 +9,7 @@ import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { Modal } from "../Modal";
 import TodoForm from "../TodoForm";
+import LoadingSkeleton from "../LoadingSkeleton";
 
 function AppUI() {
   const {
@@ -42,7 +43,7 @@ function AppUI() {
       </TodoList>
       {!!openModal && (
         <Modal>
-          <TodoForm/>
+          <TodoForm />
         </Modal>
       )}
       <CreateTodoButton setOpenModal={setOpenModal} />
