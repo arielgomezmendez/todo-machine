@@ -28,7 +28,7 @@ const TodoForm = () => {
         <textarea
           onChange={onChange}
           value={newTodoValue}
-          placeholder="Cortar ceboolla"
+          placeholder="Cortar cebolla"
         ></textarea>
         <div className="TodoForm-buttonContainer">
           <button

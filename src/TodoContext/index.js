@@ -20,7 +20,7 @@ function TodoProvider(props) {
 
   //Search todos
   let searchedTodos = [];
-
+  
   if (!searchValue.length >= 1) {
     searchedTodos = todos;
   } else {
@@ -30,14 +30,14 @@ function TodoProvider(props) {
       return todoText.includes(searchText);
     });
   }
- //Complete todos
+  //Complete todos
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = true;
     saveTodos(newTodos);
   };
-//Delete todos
+  //Delete todos
   const deleteTodo = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
