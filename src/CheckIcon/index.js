@@ -1,7 +1,17 @@
 import React from "react";
+import "./CheckIcon.css"
 
-const DeleteIcon = () => {
-  return <div></div>;
+const CheckIcon = (props) => {
+  return (
+    <div>
+      <span
+        className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}
+        onClick={props.onComplete}
+      >
+        ok
+      </span>
+    </div>
+  );
 };
 
-export default DeleteIcon;
+export default CheckIcon;

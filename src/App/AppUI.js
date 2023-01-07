@@ -23,9 +23,7 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
-    loadingArray,
-    setLoadingArray,
-    todos,
+    
   } = React.useContext(TodoContext);
 
   return (
