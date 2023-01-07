@@ -18,14 +18,3 @@
 .TodoItem-p--complete {
   text-decoration: line-through;
 }
-
-
-
-.Icon-delete {
-  position: absolute;
-  top: -24px;
-  right: 0;
-}
-.Icon-delete:hover {
-  color: red;
-}

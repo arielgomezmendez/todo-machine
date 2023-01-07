@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
+import "./DeleteIcon.css";
 
 const DeleteIcon = (props) => {
   return (
-    <div>
-      <span className="Icon Icon-delete" onClick={props.onDelete}>
-        X
-      </span>
-    </div>
-  )
-}
+    <span className="Icon Icon-delete" onClick={props.onDelete}>
+      X
+    </span>
+  );
+};
 
-export default DeleteIcon
+export default DeleteIcon;
