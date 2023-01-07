@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
-
+import { useState } from "react";
 // Al crear el contexto también podemos pasarle un valor inicial entre los paréntesis
 const TodoContext = React.createContext();
 
@@ -11,19 +11,17 @@ function TodoProvider(props) {
     saveItem: saveTodos,
     loading,
     error,
-    
-    
   } = useLocalStorage("TODOS_V1", []);
+
   const [searchValue, setSearchValue] = React.useState("");
   const [openModal, setOpenModal] = React.useState(false);
-  const [loadingArray, setLoadingArray] = React.useState([])
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
   //Search todos
   let searchedTodos = [];
-  
+
   if (!searchValue.length >= 1) {
     searchedTodos = todos;
   } else {
@@ -74,8 +72,6 @@ function TodoProvider(props) {
         addTodo,
         openModal,
         setOpenModal,
-        loadingArray,
-        setLoadingArray,
       }}
     >
       {props.children}

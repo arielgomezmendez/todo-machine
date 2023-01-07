@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 
 // Importamos nuestro contexto
 import { TodoContext } from "../TodoContext";
@@ -24,6 +25,7 @@ function AppUI() {
     setOpenModal,
     loadingArray,
     setLoadingArray,
+    todos,
   } = React.useContext(TodoContext);
 
   return (
